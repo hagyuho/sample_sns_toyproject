@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express'
+import { gql } from "apollo-server-express";
 
 const messageSchema = gql`
   type Message {
@@ -9,7 +9,7 @@ const messageSchema = gql`
   }
 
   extend type Query {
-    messages: [Message!]! # getMessages
+    messages(cursor: ID): [Message!]! # getMessages
     message(id: ID!): Message! # getMessage
   }
 
@@ -18,6 +18,6 @@ const messageSchema = gql`
     updateMessage(id: ID!, text: String!, userId: ID!): Message!
     deleteMessage(id: ID!, userId: ID!): ID!
   }
-`
+`;
 
-export default messageSchema
+export default messageSchema;
